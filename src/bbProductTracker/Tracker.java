@@ -76,11 +76,13 @@ public class Tracker extends JFrame {
 		JButton btnNewButton = new JButton("SUBMIT");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				// When the submit button is clicked, the email is passed to the SiteData class
 				String email = TFemail.getText();
 				TFemail.setEditable(false);
 				JOptionPane.showMessageDialog(null, "We will notify you once the product is available");
 				
 				while (!available) {
+					// Product availability is checked every 10 seconds until it is available
 					SiteData.refresh();
 					
 					try {

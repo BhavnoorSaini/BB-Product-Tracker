@@ -6,7 +6,6 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
-import javax.swing.SwingConstants;
 import javax.swing.GroupLayout;
 import javax.swing.ImageIcon;
 import javax.swing.GroupLayout.Alignment;
@@ -69,14 +68,18 @@ public class StartMenu extends JFrame {
 		btnNewButton.setBackground(Color.cyan);
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				// When the search button is clicked, the URL is passed to the SiteData class
 				String URL = TFURL.getText();
 				new SiteData(URL);
+				
+				// The StartMenu frame is hidden and the Result frame is displayed
 				setVisible(false);
 				Result Result = new Result();
 				EventQueue.invokeLater(() -> Result.setVisible(true));
 			}
 		});
-	
+		
+		// Best Buy logo image
 		ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/best buy logo.png"));
 		Image i2 = i1.getImage().getScaledInstance(120, 120, Image.SCALE_DEFAULT);
 		ImageIcon i3 = new ImageIcon(i2);

@@ -11,10 +11,12 @@ public class SiteData {
 	private static Boolean available;
 	static Document document;
 	
+	// Constructor
 	public SiteData(String url) {
-		this.url = url;
+		SiteData.url = url;
 		available = true;
 		
+		// Connect to the URL
 		document = null;
 		try {
 			document = Jsoup.connect(url).get();
@@ -23,6 +25,7 @@ public class SiteData {
 		}
 	}
 	
+	// Check if the product is available by finding the "sold out" button
 	public static Boolean isAvailable() {
 		Element soldOutButton = document.selectFirst(":containsOwn(sold out)");
 		
@@ -34,6 +37,7 @@ public class SiteData {
         }
 	}
 	
+	// Check if the product is available and return appropriate string
 	public static String inStock() {
 		isAvailable();
 		
@@ -44,12 +48,14 @@ public class SiteData {
 		}
 	}
 	
+	// Get the image URL from product page
 	public static String getImageUrl() {
         Element imageElement = document.selectFirst("meta[property=og:image]");
         String imageUrl = imageElement.attr("content");
 		return imageUrl;
 	}
 	
+	// Get the product description from product page
 	public static String getDescription() {
         Element description = document.selectFirst(".sku-title");
         String text = description.text();

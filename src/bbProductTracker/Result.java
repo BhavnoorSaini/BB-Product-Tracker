@@ -85,7 +85,11 @@ public class Result extends JFrame {
 		JButton refreshButton = new JButton("REFRESH");
 		refreshButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				// When the refresh button is clicked, the SiteData class is refreshed and the Result frame is hidden
 				setVisible(false);
+				
+				// The SiteData class is refreshed and the Result frame is displayed
 				SiteData.refresh();
 				Result Result = new Result();
 				EventQueue.invokeLater(() -> Result.setVisible(true));
@@ -95,6 +99,7 @@ public class Result extends JFrame {
 		JButton resetButton = new JButton("NEW SEARCH");
 		resetButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				// When the new search button is clicked, the StartMenu frame is displayed and the Result frame is hidden
 				setVisible(false);
 				StartMenu Menu = new StartMenu();
 				EventQueue.invokeLater(() -> Menu.setVisible(true));
@@ -103,7 +108,7 @@ public class Result extends JFrame {
 		
 		try {
 		    JLabel imagelbl = new JLabel();
-		    
+		    // The product image is loaded from the URL and scaled to fit the label
 		    BufferedImage img = ImageIO.read(new URL(SiteData.getImageUrl()));
 		    Image scaledImage = img.getScaledInstance(173, 105, Image.SCALE_SMOOTH);
 		    
@@ -117,6 +122,7 @@ public class Result extends JFrame {
 		JButton notifyButton = new JButton("NOTIFY ME");
 		notifyButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				// When the notify me button is clicked, the Tracker frame is displayed and the Result frame is hidden
 				setVisible(false);
 				Tracker Tracker = new Tracker();
 				EventQueue.invokeLater(() -> Tracker.setVisible(true));
