@@ -1,6 +1,5 @@
 package bbProductTracker;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.EventQueue;
 
@@ -13,7 +12,6 @@ import javax.swing.GroupLayout.Alignment;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.JTextPane;
 import java.awt.Font;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -23,7 +21,6 @@ import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.awt.event.ActionEvent;
 
